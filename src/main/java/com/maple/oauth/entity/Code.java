@@ -53,4 +53,8 @@ public class Code implements Serializable {
         this.code = code;
         this.authentication = authentication;
     }
+
+    public Code(String authentication) {
+        this.authentication = authentication;
+    }
 }

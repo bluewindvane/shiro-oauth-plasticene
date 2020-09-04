@@ -5,6 +5,7 @@ import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.maple.oauth.common.api.CommonResult;
 import com.maple.oauth.common.enumeration.AccessTokenTypeEnum;
 import com.maple.oauth.common.exception.BaseException;
@@ -52,6 +53,9 @@ public class OauthServiceImpl implements IOauthService {
     public CommonResult<String> code(String clientId) {
         //生成不重复的code
         String code = codeComponent.generateCode(clientId);
+
+        //删除该clientId下面其他code
+        codeMapper.delete(new QueryWrapper<>(new Code(clientId)));
 
         //插入数据库
         codeMapper.insert(new Code(code, clientId));
