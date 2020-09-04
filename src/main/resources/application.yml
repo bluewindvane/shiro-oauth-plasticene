@@ -1,0 +1,21 @@
+server:
+  port: 8999
+
+spring:
+  application:
+    name: oauth
+  datasource:
+    url: jdbc:mysql://localhost:3306/plasticene?characterEncoding=utf8&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+shiro:
+  enabled: true
+  sessionManager:
+    sessionIdCookieEnabled: false
+    sessionIdUrlRewritingEnabled: false
+
+jwt:
+  secret: lmm23T12^%8904645L
+  tokenHeader: Authorization
+

@@ -1,2 +1,2 @@
 # shiro-oauth-plasticene
-shiro
+集成shiro,自定义权限控制
